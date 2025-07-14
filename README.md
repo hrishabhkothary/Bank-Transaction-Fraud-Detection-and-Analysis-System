@@ -120,8 +120,9 @@ bank-fraud-detection/
 
 ✅ **1. Clone the Repo**
 
-git clone https://github.com/YOUR_USERNAME/bank-fraud-detection.git
+git clone https://github.com/hrishabhkothary/Bank-Transaction-Fraud-Detection-and-Analysis-System.git
 cd bank-fraud-detection
+
 ✅ 2. Install Dependencies
 
 
