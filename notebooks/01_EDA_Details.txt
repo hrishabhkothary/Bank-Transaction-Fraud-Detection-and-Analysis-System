@@ -1,0 +1,8 @@
+1️⃣ Loads the raw CSV you generated with generate_fake_data.py
+2️⃣ Prints info(), checks for missing data, shows the shape
+3️⃣ Visualizes fraud vs non-fraud count
+4️⃣ Shows transaction amount distribution
+5️⃣ Shows category distribution
+6️⃣ Plots fraud rate per category — great for insights
+7️⃣ Plots transactions by hour — time pattern checks
+

@@ -1,0 +1,7 @@
+1. create_db.sql:
+
+Defines schema to store transactions.
+
+is_fraud indicates fraud (1) or not (0).
+
+2. You may have to adjust secure-file-priv for MySQL.

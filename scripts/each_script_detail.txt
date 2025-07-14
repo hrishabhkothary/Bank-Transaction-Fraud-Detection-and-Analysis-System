@@ -1,0 +1,21 @@
+1. generate_fake_data.py:
+
+Uses Faker to simulate real bank transactions.
+
+Imposes a small percentage of frauds.
+
+Stores the data to CSV.
+
+2. connect_mysql.py:
+
+Uses mysql-connector-python to connect.
+
+Reusable utility for all queries.
+
+3. utils.py
+
+load_csv(): Safely loads any CSV — e.g., raw or processed transactions.
+
+save_csv(): Saves your DataFrame safely — used after cleaning or feature engineering.
+
+print_separator(): Helps keep your Jupyter notebook logs readable.
