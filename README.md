@@ -85,11 +85,7 @@ bank-fraud-detection/
 ├── README.md
 └── .gitignore
 
-markdown
-Copy
-Edit
 
----
 
 ## 🔍 How It Works
 
@@ -124,22 +120,18 @@ Edit
 
 ✅ **1. Clone the Repo**
 
-```bash
 git clone https://github.com/YOUR_USERNAME/bank-fraud-detection.git
 cd bank-fraud-detection
 ✅ 2. Install Dependencies
 
-bash
-Copy
-Edit
+
 pip install -r requirements.txt
 ✅ 3. Generate Synthetic Data
 
-bash
-Copy
-Edit
+
 cd scripts
 python generate_fake_data.py
+
 ✅ 4. Set Up MySQL Database
 
 Open database/create_db.sql in MySQL Workbench & execute.
@@ -150,9 +142,7 @@ Run database/load_data.sql to import CSV into the transactions table.
 
 ✅ 5. Run Notebooks
 
-bash
-Copy
-Edit
+
 jupyter notebook
 Open notebooks/ and run:
 
@@ -184,6 +174,6 @@ Visualizations show clear fraud vs. non-fraud trends.
 This project is open-sourced for educational use.
 
 🙌 Author
-[Your Name] — Data Scientist & ML Enthusiast
+Hrishabh Kothari — Data Scientist & ML Enthusiast
 
 ✨ If you find this useful, leave a ⭐ on the repo!
