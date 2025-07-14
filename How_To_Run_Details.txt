@@ -1,0 +1,101 @@
+📄 1️⃣ How to Run the Bank Fraud Detection Project
+✅ Prerequisites:
+✔️ Python 3.10+ installed
+✔️ MySQL installed & running
+✔️ Git cloned your repo locally
+✔️ Required Python libraries installed
+
+✅ Project Folder
+Your project should look like:
+
+bank-fraud-detection/
+│
+├── data/
+│   ├── raw_transactions.csv
+│   ├── processed_transactions.csv
+│
+├── database/
+│   ├── create_db.sql
+│   ├── load_data.sql
+│
+├── notebooks/
+│   ├── 01_EDA.ipynb
+│   ├── 02_Feature_Engineering.ipynb
+│   ├── 03_Model_Training.ipynb
+│   ├── 04_Model_Evaluation.ipynb
+│   ├── 05_Visualization.ipynb
+│
+├── scripts/
+│   ├── generate_fake_data.py
+│   ├── connect_mysql.py
+│   ├── utils.py
+│
+├── models/           # will contain saved models
+│
+├── requirements.txt
+├── README.md
+
+Actual Run :
+
+✅ Step 1: Install Python Dependencies:
+
+pip install -r requirements.txt
+
+✅ Step 2: Generate the Synthetic Banking Data:
+
+cd scripts
+python generate_fake_data.py
+👉 This creates a raw_transactions.csv with 100,000 realistic transactions — 0.5% labeled as fraud.
+
+✅ Step 3: Create MySQL Database
+1️⃣ Open MySQL Workbench (or CLI).
+2️⃣ Run create_db.sql:
+
+CREATE DATABASE IF NOT EXISTS bank_transactions;
+
+USE bank_transactions;
+
+CREATE TABLE IF NOT EXISTS transactions (
+    transaction_id VARCHAR(255) PRIMARY KEY,
+    customer_id INT,
+    transaction_time DATETIME,
+    amount DECIMAL(10,2),
+    merchant VARCHAR(255),
+    category VARCHAR(50),
+    is_fraud TINYINT(1)
+);
+✅ Step 4: Load Data into MySQL:
+
+1️⃣ Copy raw_transactions.csv to your MySQL secure-file-priv folder (/var/lib/mysql-files/ by default on Linux).
+2️⃣ Run load_data.sql:
+
+LOAD DATA INFILE '/var/lib/mysql-files/raw_transactions.csv'
+INTO TABLE transactions
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(transaction_id, customer_id, transaction_time, amount, merchant, category, is_fraud);
+✅ Now your transactions live in the DB.
+
+✅ Step 5: Run the Notebooks in Order
+Open a terminal:
+
+jupyter notebook
+
+Open each notebook in this order:
+
+1️⃣ 01_EDA.ipynb — See raw data, check fraud imbalance, visualize trends.
+2️⃣ 02_Feature_Engineering.ipynb — Add time features, bin amounts, encode categories. Save processed data to processed_transactions.csv.
+3️⃣ 03_Model_Training.ipynb — Train Logistic Regression, Random Forest, XGBoost. Save best models to models/.
+4️⃣ 04_Model_Evaluation.ipynb — Load saved models. Generate confusion matrix, ROC, PR curves.
+5️⃣ 05_Visualization.ipynb — See advanced fraud patterns, correlation heatmaps.
+
+✅ By the end, you’ll have:
+
+-Clean dataset (processed_transactions.csv)
+
+-Saved trained models (models/)
+
+-Evaluation metrics
+
+-Visual fraud patterns
