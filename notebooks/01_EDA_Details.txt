@@ -5,4 +5,3 @@
 5️⃣ Shows category distribution
 6️⃣ Plots fraud rate per category — great for insights
 7️⃣ Plots transactions by hour — time pattern checks
-
